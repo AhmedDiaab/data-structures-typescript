@@ -80,4 +80,19 @@ export class LinkedList {
         shiftedNode.next = null;
         return shiftedNode;
     }
+
+    get(index: number): Node | undefined {
+        if(0 > index || this.length - 1 < index) {
+            return undefined;
+        }
+
+        let node = this.head;
+        for(let idx = 0; idx < this.length ; idx++) {
+            if(idx === index) {
+                break;
+            }
+            node = node!.next;    
+        }
+        return node!;
+    }
 }
