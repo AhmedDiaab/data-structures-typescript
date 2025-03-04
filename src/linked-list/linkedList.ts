@@ -9,8 +9,8 @@ class Node {
 }
 
 export class LinkedList {
-    private head: Node;
-    private tail: Node;
+    private head: Node | null;
+    private tail: Node | null;
     private length: number;
 
     constructor(value: number) {
@@ -20,16 +20,39 @@ export class LinkedList {
         this.length = 1;
     }
     
-    push(value: number) {
+    push(value: number): LinkedList {
         const newNode = new Node(value);
         if(!this.head) {
             this.head = newNode;
             this.tail = newNode;
         } else {
-            this.tail.next = newNode;
+            this.tail!.next = newNode;
             this.tail = newNode;
         }
         this.length++;
         return this;
+    }
+
+    pop(): Node {
+        let poppedNode: Node = this.head!;
+        
+        if(!this.head) {
+            throw new Error('LinkedList is empty!');
+        }
+
+        if(this.head === this.tail) {
+            this.head = this.tail = null;
+        } 
+        
+        while (poppedNode.next) {
+            if(poppedNode.next === this.tail) {
+                [this.tail,  poppedNode] = [poppedNode , this.tail];
+                this.tail.next = null;
+                break;
+            }
+            poppedNode = poppedNode.next; 
+        }
+        this.length--;
+        return poppedNode;
     }
 }
