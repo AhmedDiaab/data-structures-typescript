@@ -14,6 +14,9 @@ ll.pop();
 ll.pop();
 
 ll.pop();
+ll.unshift(2);
+ll.unshift(3);
+ll.unshift(4);
 console.log(ll);
 
 

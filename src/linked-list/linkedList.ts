@@ -55,4 +55,17 @@ export class LinkedList {
         this.length--;
         return poppedNode;
     }
+
+    unshift(value: number): LinkedList {
+        const newNode = new Node(value);
+
+        if(!this.head) {
+            this.head = this.tail = newNode;
+        } else {
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+        this.length++;
+        return this;
+    }
 }
