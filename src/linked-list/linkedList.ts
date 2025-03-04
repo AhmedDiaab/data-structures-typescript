@@ -77,6 +77,7 @@ export class LinkedList {
             this.tail = this.head;
         }
         this.length--;
+        shiftedNode.next = null;
         return shiftedNode;
     }
 }
