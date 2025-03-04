@@ -1,11 +1,24 @@
+import { createInterface } from "node:readline/promises";
 import { LinkedList } from "./linked-list";
+import { stdin, stdout } from "node:process";
 
-const ll = new LinkedList(4)
-ll.push(3)
-ll.push(2)
-ll.pop()
-ll.pop()
-ll.pop()
-ll.pop()
+const rl = createInterface({
+    input: stdin,
+    output: stdout
+})
+const ll = new LinkedList(4);
+ll.push(3);
+ll.push(2);
+ll.pop();
+ll.pop();
+ll.pop();
+
+ll.pop();
 console.log(ll);
-console.log('hello world')
+
+
+async function question() {
+    await rl.question('Server is running...');
+}
+
+question();
