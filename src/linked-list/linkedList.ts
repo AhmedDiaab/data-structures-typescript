@@ -33,11 +33,11 @@ export class LinkedList {
         return this;
     }
 
-    pop(): Node {
+    pop(): Node | undefined {
         let poppedNode: Node = this.head!;
         
         if(!this.head) {
-            throw new Error('LinkedList is empty!');
+            return undefined;
         }
 
         if(this.head === this.tail) {
