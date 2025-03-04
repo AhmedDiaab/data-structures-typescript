@@ -95,4 +95,13 @@ export class LinkedList {
         }
         return node!;
     }
+
+    set(index: number, value: number): boolean {
+        const node = this.get(index);
+        if(node) {
+            node.value = value;
+            return true;
+        }
+        return false;
+    }
 }
