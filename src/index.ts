@@ -18,6 +18,11 @@ ll.unshift(2);
 ll.unshift(3);
 ll.unshift(4);
 console.log(ll);
+ll.shift()
+ll.shift()
+ll.shift()
+ll.shift()
+console.log(ll);
 
 
 async function question() {

@@ -68,4 +68,15 @@ export class LinkedList {
         this.length++;
         return this;
     }
+
+    shift(): Node | undefined {
+        if(!this.head) return undefined;
+        const shiftedNode = this.head;
+        this.head = this.head.next;
+        if(!this.head) {
+            this.tail = this.head;
+        }
+        this.length--;
+        return shiftedNode;
+    }
 }
