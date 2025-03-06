@@ -104,4 +104,25 @@ export class LinkedList {
         }
         return false;
     }
+
+
+    insert(index: number, value: number): LinkedList | boolean {
+        if(0 > index || this.length + 1 < index) {
+            return false;
+        }
+
+        if(index === 0) {
+            return this.unshift(value);
+        }
+
+        if(index === this.length) {
+            this.push(value);
+        }
+
+        const newNode = new Node(value);
+        const temp = this.get(index);
+        newNode.next = temp!.next;
+        temp!.next = newNode;
+        return this;
+    }
 }
