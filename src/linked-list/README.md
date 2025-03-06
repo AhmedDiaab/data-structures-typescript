@@ -133,13 +133,13 @@ Removes node by index
 
 ### `reverse`
 Reverses the linked list
-1. temp = head [assign temp with head]
-2. head = tail | [switch head
-3. tail = temp | with tail]
-2. previous = next = null [create previous and next]
-3. traverse nodes
-    - next = temp.next [step forward to get next node link]
-    - temp.next = previous [reverse link]
-    - previous = temp [move previous forward]
-    - temp = next [move next forward]
-4. return linkedList
+1. prev = null
+2. current = head
+3. head = tail
+4. tail = current
+5. traverse nodes while current has value
+    - next = current.next [`next` step forward]
+    - current.next = prev [reverse link]
+    - prev = current [move `prev` forward]
+    - current = next [`step` forward]
+6. return this

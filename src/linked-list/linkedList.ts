@@ -145,20 +145,18 @@ export class LinkedList {
     }
 
     reverse(): LinkedList {
-        // reverse head and tail
-        let temp = this.head;
+        let prev: Node | null = null;
+        let current = this.head;
         this.head = this.tail;
-        this.tail = temp;
+        this.tail = current;
 
-        // defining previous and next variables to keet tracking nodes
-        let previous, next = null;
-        // we move from start to end to make start the end and vice versa
-        while (temp) {
-            next = temp!.next; // step forward [next|temp|prev,....] => [temp, prev, next, .....]
-            temp!.next = previous! || null; // move next to be previous [prev,temp,next,....]
-            previous = temp; // move again previous [... prev|temp, next, ....]
-            temp = next; // move temp one step forward [...., prev, temp|next, ....]
+        while(current) {
+            let next = current.next; // next step forward
+            current.next = prev; // reverse link
+            prev = current; // move prev forward
+            current = next; // step forward
         }
+
         return this;
     }
 }
