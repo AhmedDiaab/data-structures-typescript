@@ -82,7 +82,7 @@ export class LinkedList {
     }
 
     get(index: number): Node | undefined {
-        if(0 > index || this.length - 1 < index) {
+        if(0 > index || this.length < index) {
             return undefined;
         }
 
