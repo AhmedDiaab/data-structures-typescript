@@ -107,22 +107,23 @@ export class LinkedList {
 
 
     insert(index: number, value: number): LinkedList | boolean {
-        if(0 > index || this.length + 1 < index) {
-            return false;
-        }
-
         if(index === 0) {
             return this.unshift(value);
         }
 
         if(index === this.length) {
-            this.push(value);
+            return this.push(value);
+        }
+
+        if(0 > index || this.length < index) {
+            return false;
         }
 
         const newNode = new Node(value);
-        const temp = this.get(index);
+        const temp = this.get(index - 1);
         newNode.next = temp!.next;
         temp!.next = newNode;
+        this.length++;
         return this;
     }
 }
