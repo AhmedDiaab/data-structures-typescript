@@ -126,4 +126,25 @@ export class LinkedList {
         this.length++;
         return this;
     }
+
+    remove(index: number): Node | undefined {
+        if(index === 0) {
+            return this.shift();
+        }
+        
+        if(index === this.length - 1) {
+            return this.pop();
+        }
+            
+        if(0 > index || this.length < index) {
+            return undefined;
+        }
+
+        const pre = this.get(index - 1);
+        const poppedNode = pre!.next;
+        pre!.next  = poppedNode!.next;
+        poppedNode!.next = null;
+        this.length--;
+        return poppedNode!;
+    }
 }
