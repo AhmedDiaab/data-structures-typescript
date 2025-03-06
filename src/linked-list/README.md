@@ -137,11 +137,10 @@ Reverses the linked list
 1. temp = head [assign temp with head]
 2. head = tail | [switch head
 3. tail = temp | with tail]
-2. prevous = temp, next = temp [assign previous and next with temp]
-3. iterate through nodes
-    - next = temp.next [step forward]
+2. previous = next = null [create previous and next]
+3. traverse nodes
+    - next = temp.next [step forward to get next node link]
     - temp.next = previous [reverse link]
     - previous = temp [move previous forward]
     - temp = next [move next forward]
-4. tail.next = null
-5. return linkedList
+4. return linkedList

@@ -155,16 +155,14 @@ export class LinkedList {
         this.tail = temp;
 
         // defining previous and next variables to keet tracking nodes
-        let previous = temp;
-        let next = temp;
+        let previous, next = null;
         // we move from start to end to make start the end and vice versa
-        for(let idx = 0; idx < this.length; idx++) {
+        while (temp) {
             next = temp!.next; // step forward [next|temp|prev,....] => [temp, prev, next, .....]
-            temp!.next = previous; // move next to be previous [prev,temp,next,....]
+            temp!.next = previous! || null; // move next to be previous [prev,temp,next,....]
             previous = temp; // move again previous [... prev|temp, next, ....]
             temp = next; // move temp one step forward [...., prev, temp|next, ....]
         }
-        this.tail!.next = null;
         return this;
     }
 }
