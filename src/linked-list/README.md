@@ -91,11 +91,10 @@ Removes node from the start of linked list
 ### `get`
 Gets node by index
 1. 0 > index ||  length < index ? return undefined
-2. node = head
+2. current = head
 3. iterate through nodes
-    - index === iteration ? break
-    - node = node.next
-4. return node
+    - current = current.next
+4. return current
 
 
 ### `set`

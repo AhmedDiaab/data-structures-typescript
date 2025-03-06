@@ -85,14 +85,11 @@ export class LinkedList {
             return undefined;
         }
 
-        let node = this.head;
+        let current = this.head;
         for(let idx = 0; idx < this.length ; idx++) {
-            if(idx === index) {
-                break;
-            }
-            node = node!.next;    
+            current = current!.next;    
         }
-        return node!;
+        return current!;
     }
 
     set(index: number, value: number): boolean {
