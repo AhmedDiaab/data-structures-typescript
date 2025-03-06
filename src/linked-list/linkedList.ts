@@ -164,6 +164,7 @@ export class LinkedList {
             previous = temp; // move again previous [... prev|temp, next, ....]
             temp = next; // move temp one step forward [...., prev, temp|next, ....]
         }
+        this.tail!.next = null;
         return this;
     }
 }

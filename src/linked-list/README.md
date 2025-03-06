@@ -143,4 +143,5 @@ Reverses the linked list
     - temp.next = previous [reverse link]
     - previous = temp [move previous forward]
     - temp = next [move next forward]
-4. return linkedList
+4. tail.next = null
+5. return linkedList
