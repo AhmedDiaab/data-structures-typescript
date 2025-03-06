@@ -81,12 +81,12 @@ export class LinkedList {
     }
 
     get(index: number): Node | undefined {
-        if(0 > index || this.length < index) {
+        if(index < 0 || index >= this.length) {
             return undefined;
         }
 
         let current = this.head;
-        for(let idx = 0; idx < this.length ; idx++) {
+        for(let idx = 0; idx < index ; idx++) {
             current = current!.next;    
         }
         return current!;

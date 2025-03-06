@@ -90,7 +90,7 @@ Removes node from the start of linked list
 
 ### `get`
 Gets node by index
-1. 0 > index ||  length < index ? return undefined
+1. index < 0 || index >= length ? return undefined
 2. current = head
 3. iterate through nodes
     - current = current.next
