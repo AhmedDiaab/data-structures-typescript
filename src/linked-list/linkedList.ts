@@ -136,7 +136,7 @@ export class LinkedList {
             return this.pop();
         }
             
-        if(0 > index || this.length < index) {
+        if(0 > index || this.length <= index) { // test if index = length
             return undefined;
         }
 
