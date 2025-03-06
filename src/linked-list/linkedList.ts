@@ -111,7 +111,7 @@ export class LinkedList {
             return this.push(value);
         }
 
-        if(0 > index || this.length < index) {
+        if(index < 0 || index > this.length) {
             return false;
         }
 
@@ -132,7 +132,7 @@ export class LinkedList {
             return this.pop();
         }
             
-        if(0 > index || this.length <= index) { // test if index = length
+        if(index < 0 || index >= this.length) {
             return undefined;
         }
 
