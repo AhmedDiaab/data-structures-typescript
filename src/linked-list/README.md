@@ -110,7 +110,7 @@ Change value of node by index
 Inserts node in a spcific index
 1. if index === 0 ? return unshift(value)
 2. if index === length ? push(value)
-3. if 0 > index || this.length < index ? return false
+3. if index < 0 || index > this.length ? return false
 4. newNode = new Node(value)
 5. temp = get(index - 1)
 6. newNode.next = temp.next
@@ -123,7 +123,7 @@ Inserts node in a spcific index
 Removes node by index 
 1. if index === 0 ? return shift(value)
 2. if index === length ? pop(value)
-3. if 0 > index || this.length <= index ? return undefined
+3. if index < 0 || index >= this.length ? return undefined
 4. previous = get(index - 1)
 5. poppedNode = previous.next
 6. previous.next = poppedNode.next
