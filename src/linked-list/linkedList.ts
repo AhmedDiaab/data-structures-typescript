@@ -34,24 +34,23 @@ export class LinkedList {
     }
 
     pop(): Node | undefined {
-        let poppedNode: Node = this.head!;
-        
         if(!this.head) {
             return undefined;
         }
 
+        let poppedNode: Node = this.tail!;
+
         if(this.head === this.tail) {
             this.head = this.tail = null;
-        } 
-        
-        while (poppedNode.next) {
-            if(poppedNode.next === this.tail) {
-                [this.tail,  poppedNode] = [poppedNode , this.tail];
-                this.tail.next = null;
-                break;
+        } else {
+            let current = this.head;
+            while (current.next && current.next !== this.tail) {
+                current = current.next;
             }
-            poppedNode = poppedNode.next; 
+            this.tail = current;
+            this.tail.next = null;
         }
+        
         this.length--;
         return poppedNode;
     }

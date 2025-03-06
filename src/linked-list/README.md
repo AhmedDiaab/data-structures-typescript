@@ -52,15 +52,15 @@ Pushes new node to the end of the linked list
 ### `pop`
 Removes last node of the linked list
 #### Steps
-1. poppedNode = head
-2. if !head ? return undefined
+1. if !head ? return undefined
+2. poppedNode = tail
 3. if head = tail ? head = tail = null
-4. while poppedNode.next:
-    - if poppedNode.next = tail ? 
-        - [tail,  poppedNode] = [poppedNode , tail]
-        - tail.next = null
-        - break
-    - poppedNode = poppedNode.next
+4. else 
+    - current = head
+    - while current.next && current.next !== tail:
+        - current = current.next
+    - tail = current
+    - tail.next = null
 5. length--
 6. return poppedNode
 
