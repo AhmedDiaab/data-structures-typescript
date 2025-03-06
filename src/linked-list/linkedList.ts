@@ -147,4 +147,23 @@ export class LinkedList {
         this.length--;
         return poppedNode!;
     }
+
+    reverse(): LinkedList {
+        // reverse head and tail
+        let temp = this.head;
+        this.head = this.tail;
+        this.tail = temp;
+
+        // defining previous and next variables to keet tracking nodes
+        let previous = temp;
+        let next = temp;
+        // we move from start to end to make start the end and vice versa
+        for(let idx = 0; idx < this.length; idx++) {
+            next = temp!.next; // step forward [next|temp|prev,....] => [temp, prev, next, .....]
+            temp!.next = previous; // move next to be previous [prev,temp,next,....]
+            previous = temp; // move again previous [... prev|temp, next, ....]
+            temp = next; // move temp one step forward [...., prev, temp|next, ....]
+        }
+        return this;
+    }
 }
