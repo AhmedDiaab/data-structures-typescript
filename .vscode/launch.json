@@ -17,6 +17,24 @@
             ],
             "cwd": "${workspaceRoot}",
             "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "name": "nodemon watch",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npx",
+            "args": [
+                "nodemon",
+                "--ext",
+                "ts",
+                "--exec",
+                "ts-node",
+                "src/index.ts"
+            ],
+            "cwd": "${workspaceRoot}",
+            "internalConsoleOptions": "openOnSessionStart",
+            "restart": true
         }
+        
     ]
 }
